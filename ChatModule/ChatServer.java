@@ -16,21 +16,20 @@ public class ChatServer{
 		
 		while(true){
 			try{
-        System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
-        clientSocket = serverSocket.accept();
+		        System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
+		        clientSocket = serverSocket.accept();
 
-        System.out.println("Just connected to " + clientSocket.getRemoteSocketAddress());
-        clients.add(new ClientThread(clientSocket,clients));
-        clients.get(clients.size()-1).start();
+		        System.out.println("Just connected to " + clientSocket.getRemoteSocketAddress());
+		        clients.add(new ClientThread(clientSocket,clients));
+		        clients.get(clients.size()-1).start();
         
-      }catch(SocketTimeoutException s){
-        System.out.println("Socket timed out!");
-        break;
-      }catch(IOException e){
-        e.printStackTrace();
-        System.out.println("Input/Output Error!");
-        break;
-      }
+			}catch(SocketTimeoutException s){
+				System.out.println("Socket timed out!");
+				break;
+			}catch(IOException e){
+				e.printStackTrace();
+				break;
+			}
 		}
 	}
 }
