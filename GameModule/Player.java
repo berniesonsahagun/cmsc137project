@@ -21,7 +21,7 @@ public class Player extends GameObject{
 		setX(getX()+spdX);
 		setY(getY()+spdY);
 
-		if(CollisionChecker.isColliding(this,getController().getEntityList())) {
+		if(CollisionChecker.isColliding(this,getController())) {
 			setX(getX()-spdX);
 			setY(getY()-spdY);
 		}

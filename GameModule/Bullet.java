@@ -11,7 +11,7 @@ public class Bullet extends GameObject{
 	private double projectileSpeed;
 	private double originX;
 	private double originY;
-	
+
 	public Bullet(double x, double y, Controller controller, Weapon.WeaponType weaponType, int direction, double range, double projectileSpeed){
 		super(x,y,controller);
 		this.weaponType = weaponType;
@@ -64,6 +64,8 @@ public class Bullet extends GameObject{
 				setY(getY());
 				break;
 		}
+
+		if(CollisionChecker.isColliding(this,getController()))	System.out.println("Collide");
 	}
 
 	public void render(Graphics g){

@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable{
 		try{
 			spriteSheet = loader.loadImage("/spritesheet.png");
 			background = loader.loadImage("/background.png");
-			map = loader.loadImage("/mapbig.png");
+			map = loader.loadImage("/map.png");
 		}catch(IOException e){
 			e.printStackTrace();
 		}
