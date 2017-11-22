@@ -22,8 +22,7 @@ public class Player extends GameObject{
 		setY(getY()+spdY);
 
 		if(CollisionChecker.isColliding(this,getController())) {
-			setX(getX()-spdX);
-			setY(getY()-spdY);
+			collide();
 		}
 
 		if(getX() <= 0 - 7)
@@ -34,6 +33,38 @@ public class Player extends GameObject{
 			setY(0);
 		if(getY() >= (Game.HEIGHT*Game.SCALE) - 32)
 			setY((Game.HEIGHT*Game.SCALE) - 32);
+	}
+
+	private void collide(){
+		Entity collidedEntity = CollisionChecker.collidedEntity;
+		Entity.EntityType type = collidedEntity.getType();
+
+		if(type == Entity.EntityType.POWERBLOCK){
+			getController().removeEntity(getWeapon());
+
+			switch(collidedEntity.getPowerType()){
+				case PowerBlock.KAPE_POWER:
+					this.weapon = new Kape(getX(), getY(), getController(), this);
+					getController().addEntity(this.weapon);
+					break;
+				case PowerBlock.LAPTOP_POWER:
+					this.weapon = new Laptop(getX(), getY(), getController(), this);
+					getController().addEntity(this.weapon);
+					break;
+				case PowerBlock.SELPON_POWER:
+					this.weapon = new Selpon(getX(), getY(), getController(), this);
+					getController().addEntity(this.weapon);
+					break;
+				case PowerBlock.SPRAY_POWER:
+					this.weapon = new Spray(getX(), getY(), getController(), this);
+					getController().addEntity(this.weapon);
+					break;
+			}
+			getController().removeEntity(collidedEntity);
+		}else{
+			setX(getX()-spdX);
+			setY(getY()-spdY);
+		}
 	}
 
 	public void render(Graphics g){
@@ -57,5 +88,7 @@ public class Player extends GameObject{
 	public void setSpdY(double spdY){
 		this.spdY = spdY;
 	}
-
+	public void setWeapon(Weapon weapon){
+		this.weapon = weapon;
+	}
 }

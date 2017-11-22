@@ -65,7 +65,26 @@ public class Bullet extends GameObject{
 				break;
 		}
 
-		if(CollisionChecker.isColliding(this,getController()))	System.out.println("Collide");
+		if(CollisionChecker.isColliding(this,getController()))	collide();
+	}
+
+	private void collide(){
+		Entity collidedEntity = CollisionChecker.collidedEntity;
+		Entity.EntityType type = collidedEntity.getType();
+
+		switch(type){
+			case BLOCK:
+				getController().removeEntity((Entity) this);
+				getController().removeEntity((Entity) collidedEntity);
+				break;
+			case FOE:
+				getController().removeEntity((Entity) this);
+				collidedEntity.setHP(getHP()-1);
+				break;
+			default:
+				getController().removeEntity((Entity) this);
+				break; 
+		}
 	}
 
 	public void render(Graphics g){

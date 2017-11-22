@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public interface Entity{
 	public enum EntityType{
-		BLOCK, WALL, ALLY, FOE, WEAPON, BULLET;
+		BLOCK, WALL, ALLY, FOE, WEAPON, BULLET, POWERBLOCK;
 	}
 	public void tick();
 	public void render(Graphics g);
@@ -20,4 +20,5 @@ public interface Entity{
 	public void setController(Controller controller);
 	public void setHP(int hp);
 	public Rectangle getBounds();
+	public int getPowerType();
 }

@@ -57,4 +57,7 @@ public abstract class GameObject implements Entity{
 	public Rectangle getBounds() {
         return new Rectangle((int) this.getX(), (int) this.getY(), 32, 32);
     }
+    public int getPowerType(){
+    	return 0;
+    }
 }

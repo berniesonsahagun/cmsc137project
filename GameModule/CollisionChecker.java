@@ -5,6 +5,7 @@ import java.util.*;
 import javax.swing.*;
 
 public class CollisionChecker{
+	public static Entity collidedEntity;
 
 	public static boolean isColliding(Entity entity, Controller controller){
 		LinkedList<Entity> entityList = controller.getEntityList();
@@ -12,21 +13,11 @@ public class CollisionChecker{
 		for(int i=0; i<entityList.size(); i++){
 			Entity tempEntity = entityList.get(i);
 			Entity.EntityType type = tempEntity.getType();
-			if(type != Entity.EntityType.BULLET && type != Entity.EntityType.ALLY && type != Entity.EntityType.WEAPON && entity.getBounds().intersects(tempEntity.getBounds())){
-				if(entity.getType() == Entity.EntityType.BULLET){
-					switch(type){
-						case BLOCK:
-							controller.removeEntity(tempEntity);
-							controller.removeEntity(entity);
-							break;
-						case WALL:
-							controller.removeEntity(entity);
-							break;
-						case FOE:
-							tempEntity.setHP(tempEntity.getHP()-1);
-							break;
-					}
-				}		
+			
+			if(type == Entity.EntityType.ALLY || type == Entity.EntityType.WEAPON || type == Entity.EntityType.BULLET)	continue;
+
+			if(entity.getBounds().intersects(tempEntity.getBounds())){
+				collidedEntity = tempEntity;
 				return true;
 			}
 		}
