@@ -1,5 +1,3 @@
-package cmsc137project.game.utilities;
-
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -28,7 +26,7 @@ public class Animator {
 	}
 	
 	public void nextFrame(){
-		currentImg = images[count]
+		currentImg = images[count];
 		
 		count += 1;
 
