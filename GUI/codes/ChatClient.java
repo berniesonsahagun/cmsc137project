@@ -27,26 +27,26 @@ public class ChatClient implements Runnable{
 
 	public ChatClient(){
 		try{
-      socket = new Socket("localhost", 8888);
+			socket = new Socket("localhost", 8888);
 			inputLine = new BufferedReader(new InputStreamReader(System.in));
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
-    }catch(SocketTimeoutException s){
-      System.out.println("Socket timed out!");
-    }catch(IOException e){
-      e.printStackTrace();
-      System.out.println("Input/Output Error!");
-    }
+	    }catch(SocketTimeoutException s){
+	      System.out.println("Socket timed out!");
+	    }catch(IOException e){
+	      e.printStackTrace();
+	      System.out.println("Input/Output Error!");
+	    }
 
 		try{
-    	new Thread(new ChatClient()).start();
-    	while(!isClosed)	out.writeUTF(inputLine.readLine());
+	    	new Thread(new ChatClient()).start();
+	    	while(!isClosed)	out.writeUTF(inputLine.readLine());
 
-      out.close();
-      in.close();
-      socket.close();
-    }catch(IOException e){
-      e.printStackTrace();
- 	  }
-	}
+	      out.close();
+	      in.close();
+	      socket.close();
+	    }catch(IOException e){
+	      e.printStackTrace();
+	 	  }
+		}
 }

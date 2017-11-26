@@ -47,7 +47,6 @@ public class EnterName extends JPanel{
 		enter = new JButton(new ImageIcon("../images/enterButton.png"));
 		enter.setRolloverIcon(new ImageIcon("../images/enterButtonHover.png"));
 		enter.setPressedIcon(new ImageIcon("../images/enterButtonClicked.png"));
-<<<<<<< HEAD
 		enter.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				String name = textField.getText();
@@ -56,14 +55,12 @@ public class EnterName extends JPanel{
 				c.show(Game.getCardsPanel(), "PlayScreen");
 			}
 		});
-=======
-		 enter.addActionListener(new ActionListener(){
+		enter.addActionListener(new ActionListener(){
 		 	public void actionPerformed(ActionEvent e){
 		 		CardLayout c = (CardLayout)Game.getCardsPanel().getLayout();
 		 		c.show(Game.getCardsPanel(), "Game Room List");
 		 	}
 		 });
->>>>>>> d475b4de923dd02b25674fcfcf88f5195c013825
 		enter.setContentAreaFilled(false);
 		enter.setBorderPainted(false);
 		enter.setMargin(new Insets(0,0,0,0));
