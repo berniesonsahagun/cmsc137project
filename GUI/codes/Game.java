@@ -43,6 +43,7 @@ public class Game extends JFrame{
 		screenDeck.add(new HelpScreen(), "Help Screen");
 		screenDeck.add(new MainMenu(),"Main Menu");
 		screenDeck.add(new EnterName(),"Enter Name");
+		screenDeck.add(new PlayScreen(), "PlayScreen");
 		gameContainer.add(screenDeck);
 	}
 	private void setFinalFrame(){

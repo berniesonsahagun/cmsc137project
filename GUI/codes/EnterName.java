@@ -34,15 +34,23 @@ public class EnterName extends JPanel{
 	}
 
 	private void addFields(){
+
+		textField = new JTextField(12);
+		textField.setFont(textField.getFont().deriveFont(40f));
+        textField.setBounds(5, 5, 280, 50);
+
+
 		enter = new JButton(new ImageIcon("../images/enterButton.png"));
 		enter.setRolloverIcon(new ImageIcon("../images/enterButtonHover.png"));
 		enter.setPressedIcon(new ImageIcon("../images/enterButtonClicked.png"));
-		// enter.addActionListener(new ActionListener(){
-		// 	public void actionPerformed(ActionEvent e){
-		// 		CardLayout c = (CardLayout)Game.getCardsPanel().getLayout();
-		// 		c.show(Game.getCardsPanel(), "Level 1");
-		// 	}
-		// });
+		enter.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				String name = textField.getText();
+				PlayerInfo player = new PlayerInfo(name);
+				CardLayout c = (CardLayout)Game.getCardsPanel().getLayout();
+				c.show(Game.getCardsPanel(), "PlayScreen");
+			}
+		});
 		enter.setContentAreaFilled(false);
 		enter.setBorderPainted(false);
 		enter.setMargin(new Insets(0,0,0,0));
@@ -61,9 +69,7 @@ public class EnterName extends JPanel{
 		back.setBorderPainted(false);
 		back.setMargin(new Insets(0,0,0,0));
 
-		textField=new JTextField(12);
-		textField.setFont(textField.getFont().deriveFont(40f));
-        textField.setBounds(5, 5, 280, 50);
+		
 
 		upGrid = new JPanel(new FlowLayout());
 		centerGrid = new JPanel(new FlowLayout());
