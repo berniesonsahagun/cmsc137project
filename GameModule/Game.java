@@ -49,7 +49,7 @@ public class Game extends JPanel implements Runnable{
 		this.setFocusable(true);
 
 		spriteSheet = Misc.loadImage("spritesheet");
-		background = Misc.loadImage("background");
+		background = Misc.loadImage("tempBackgroundDim");
 		map = Misc.loadImage("map");
 
 		this.addKeyListener(new KeyInput(this));
