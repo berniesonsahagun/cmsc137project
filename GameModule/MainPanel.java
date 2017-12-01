@@ -2,8 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 
-import java.awt.event.WindowAdapter; //**NEW**
-import java.awt.event.WindowEvent; //**NEW**
+import java.awt.event.WindowAdapter; 
+import java.awt.event.WindowEvent; 
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -31,18 +31,18 @@ public class MainPanel extends JFrame{
 		this.setFinalFrame();
 	}
 
-	private void setFrame(){//----------setting starting values of frame
+	private void setFrame(){
 		this.setPreferredSize(new Dimension(900,700));
 		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);  //**CHANGED**
-		this.addWindowListener(new ConfirmOnClose());  //**NEW**
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); 
+		this.addWindowListener(new ConfirmOnClose());
 		this.setIconImage(Misc.loadImage("logo"));
 	}
 
 	private class ConfirmOnClose extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 			int choice = JOptionPane.showConfirmDialog(null, "Would you like to Exit the game?", "Millennial's War", JOptionPane.YES_NO_OPTION);
-			if (choice == JOptionPane.YES_OPTION) { //user input: YES
+			if (choice == JOptionPane.YES_OPTION) { 
 				System.exit(1);
 			}		
 		}

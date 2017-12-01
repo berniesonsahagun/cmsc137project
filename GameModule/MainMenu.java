@@ -31,9 +31,9 @@ public class MainMenu extends JPanel{
 	}
 
 	private void addButtons(){
-		start = new JButton(new ImageIcon("assets/img/newGameButton.png"));
-		start.setRolloverIcon(new ImageIcon("assets/img/newGameButtonHover.png"));
-		start.setPressedIcon(new ImageIcon("assets/img/newGameButtonClicked.png"));
+		start = new JButton(new ImageIcon("../assets/img/newGameButton.png"));
+		start.setRolloverIcon(new ImageIcon("../assets/img/newGameButtonHover.png"));
+		start.setPressedIcon(new ImageIcon("../assets/img/newGameButtonClicked.png"));
 		start.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				CardLayout c = (CardLayout)MainPanel.getCardsPanel().getLayout();
@@ -45,9 +45,9 @@ public class MainMenu extends JPanel{
 		start.setMargin(new Insets(0,0,0,0));
 
 
-		help = new JButton(new ImageIcon("assets/img/helpButton.png"));
-		help.setRolloverIcon(new ImageIcon("assets/img/helpButtonHover.png"));
-		help.setPressedIcon(new ImageIcon("assets/img/helpButtonClicked.png"));
+		help = new JButton(new ImageIcon("../assets/img/helpButton.png"));
+		help.setRolloverIcon(new ImageIcon("../assets/img/helpButtonHover.png"));
+		help.setPressedIcon(new ImageIcon("../assets/img/helpButtonClicked.png"));
 		help.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				CardLayout c = (CardLayout)MainPanel.getCardsPanel().getLayout();
@@ -66,7 +66,7 @@ public class MainMenu extends JPanel{
 		
 		this.add(buttonGrid, BorderLayout.SOUTH);
 		this.add(upGrid, BorderLayout.CENTER);
-		this.add(new JLabel(new ImageIcon("assets/img/gameName.png")), BorderLayout.NORTH);
+		this.add(new JLabel(new ImageIcon("../assets/img/gameName.png")), BorderLayout.NORTH);
 		buttonGrid.setOpaque(false);
 		upGrid.setOpaque(false);
 		upGrid.setAlignmentY(Component.BOTTOM_ALIGNMENT);
