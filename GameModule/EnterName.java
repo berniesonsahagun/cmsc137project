@@ -44,9 +44,9 @@ public class EnterName extends JPanel{
         textField.setBounds(5, 5, 280, 50);
 
 
-		enter = new JButton(new ImageIcon("assets/img/enterButton.png"));
-		enter.setRolloverIcon(new ImageIcon("assets/img/enterButtonHover.png"));
-		enter.setPressedIcon(new ImageIcon("assets/img/enterButtonClicked.png"));
+		enter = new JButton(new ImageIcon("../assets/img/enterButton.png"));
+		enter.setRolloverIcon(new ImageIcon("../assets/img/enterButtonHover.png"));
+		enter.setPressedIcon(new ImageIcon("../assets/img/enterButtonClicked.png"));
 		enter.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				String name = textField.getText();
@@ -60,9 +60,9 @@ public class EnterName extends JPanel{
 		enter.setMargin(new Insets(0,0,0,0));
 
 
-		back = new JButton(new ImageIcon("assets/img/backButton.png"));
-		back.setRolloverIcon(new ImageIcon("assets/img/backButtonHover.png"));
-		back.setPressedIcon(new ImageIcon("assets/img/backButtonClicked.png"));
+		back = new JButton(new ImageIcon("../assets/img/backButton.png"));
+		back.setRolloverIcon(new ImageIcon("../assets/img/backButtonHover.png"));
+		back.setPressedIcon(new ImageIcon("../assets/img/backButtonClicked.png"));
 		back.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				MainPanel.switchPanels("Main Menu");
@@ -81,7 +81,7 @@ public class EnterName extends JPanel{
 		JPanel southWestPanel = new JPanel();
 		JPanel southEastPanel = new JPanel();
 
-		upGrid.add(new JLabel(new ImageIcon("assets/img/enterPlayerName.png")));
+		upGrid.add(new JLabel(new ImageIcon("../assets/img/enterPlayerName.png")));
 
 		southWestPanel.setOpaque(false);
 		southEastPanel.setOpaque(false);

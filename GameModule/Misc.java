@@ -34,7 +34,7 @@ public class Misc{//miscellaneous dumpsite for easy access
 
 	public static BufferedImage loadImage(String filename){
 		try {
-			return ImageIO.read(new File("assets/img/"+filename+".png"));	
+			return ImageIO.read(new File("../assets/img/"+filename+".png"));	
 		} catch(IOException e) {
 			e.printStackTrace();
 			System.exit(1);

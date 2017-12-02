@@ -16,15 +16,15 @@ public class OpeningScreen extends JPanel{
 	//just set the background and put a button in the south
 	public OpeningScreen(){
 		super(new BorderLayout());
-		goToMenu = new JButton(new ImageIcon("assets/img/clickButton.png"));
+		goToMenu = new JButton(new ImageIcon("../assets/img/clickButton.png"));
 		goToMenu.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				CardLayout c = (CardLayout)MainPanel.getCardsPanel().getLayout();
 				c.show(MainPanel.getCardsPanel(), "Main Menu");
 			}
 		});
-		goToMenu.setRolloverIcon(new ImageIcon("assets/img/clickButtonHover.png"));
-		goToMenu.setPressedIcon(new ImageIcon("assets/img/clickButtonClicked.png"));
+		goToMenu.setRolloverIcon(new ImageIcon("../assets/img/clickButtonHover.png"));
+		goToMenu.setPressedIcon(new ImageIcon("../assets/img/clickButtonClicked.png"));
 		goToMenu.setContentAreaFilled(false);
 		goToMenu.setBorderPainted(false);
 		goToMenu.setMargin(new Insets(0,0,0,0));
