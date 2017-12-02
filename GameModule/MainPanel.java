@@ -32,7 +32,7 @@ public class MainPanel extends JFrame{
 	}
 
 	private void setFrame(){//----------setting starting values of frame
-		this.setPreferredSize(new Dimension(900,700));
+		this.setPreferredSize(new Dimension(896,704));
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);  //**CHANGED**
 		this.addWindowListener(new ConfirmOnClose());  //**NEW**

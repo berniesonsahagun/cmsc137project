@@ -39,6 +39,9 @@ public abstract class GameObject implements Entity{
 	public int getHP(){
 		return this.hp;
 	}
+	public BufferedImage getImage(){
+		return this.image;
+	}
 	public void setX(double x){
 		this.x = x;
 	}
@@ -53,6 +56,9 @@ public abstract class GameObject implements Entity{
 	}
 	public void setHP(int hp){
 		this.hp = hp;
+	}
+	public void setImage(BufferedImage image){
+		this.image = image;
 	}    
 	public Rectangle getBounds() {
         return new Rectangle((int) this.getX(), (int) this.getY(), 32, 32);

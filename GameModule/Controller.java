@@ -1,21 +1,22 @@
 import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.Random;
+import java.awt.image.BufferedImage;
 
 public class Controller{
 	private LinkedList<Entity> entityList = new LinkedList<Entity>();
 	private Game game;
 	private static final Random rand = new Random();
+	private BufferedImage image;
 
-	public Controller(Game game){
+	public Controller(Game game, BufferedImage image){
 		this.game = game;
+		this.image = image;
 	}
 
 	public void tick(){
 		for(int i=0; i<entityList.size(); i++){
 			Entity entity = entityList.get(i);
-
-			if(entity.getType() == Entity.EntityType.WEAPON)	continue;
 			entity.tick();
 		}
 	}
@@ -47,5 +48,9 @@ public class Controller{
 
 	public LinkedList<Entity> getEntityList(){
 		return this.entityList;
+	}
+
+	public BufferedImage getImage(){
+		return this.image;
 	}
 }
