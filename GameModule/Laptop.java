@@ -7,14 +7,23 @@ public class Laptop extends Weapon{
 		super(x,y,controller,player);
 		setWeaponType(WeaponType.LAPTOP);
 		setSpeed(1);
-		setCooldown(0.5);
+		setCooldown(2);
 		setRange(Weapon.UNIT_MEASURE);
 		setProjectileSpeed(5);
 		//image = transform the person into a laptop-man
 	}
 
 	public void render(Graphics g){
-		g.setColor(Color.cyan);
-		g.drawRect((int)getX(), (int)getY(), Weapon.UNIT_MEASURE, Weapon.UNIT_MEASURE);
+		if(getPlayer().isBottom){
+			setImage(SpriteSheet.grabImage(getController().getImage(),2,2));
+		}else if(getPlayer().isRight){
+			setImage(SpriteSheet.grabImage(getController().getImage(),2,3));
+		}else if(getPlayer().isLeft){
+			setImage(SpriteSheet.grabImage(getController().getImage(),2,4));
+		}else if(getPlayer().isTop){
+			setImage(SpriteSheet.grabImage(getController().getImage(),2,5));
+		} 
+
+		g.drawImage(getImage(), (int)getX(), (int)getY(), Weapon.UNIT_MEASURE, Weapon.UNIT_MEASURE, null);
 	}
 }

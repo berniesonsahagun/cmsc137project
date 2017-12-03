@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.event.*;
 
 public abstract class Weapon extends GameObject{
 	public enum WeaponType{
@@ -32,18 +33,21 @@ public abstract class Weapon extends GameObject{
 	public void tick(){
 		setX(player.getX());
 		setY(player.getY());
-		
+	}
+
+	public void attack(){
 		if(player.isTop && player.isRight)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),NORTHEAST,getRange(),getProjectileSpeed()));
 		else if(player.isTop && player.isLeft) getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),NORTHWEST,getRange(),getProjectileSpeed()));
 		else if(player.isBottom && player.isRight) getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),SOUTHEAST,getRange(),getProjectileSpeed()));
 		else if(player.isBottom && player.isLeft) getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),SOUTHWEST,getRange(),getProjectileSpeed()));
-		else if(player.isTop)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),NORTH,getRange(),getProjectileSpeed()));
-		else if(player.isRight)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),EAST,getRange(),getProjectileSpeed()));
-		else if(player.isBottom)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),SOUTH,getRange(),getProjectileSpeed()));
-		else if(player.isLeft)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),WEST,getRange(),getProjectileSpeed()));
-
+		else if(player.isTop || player.getLastKeyPressed() == KeyEvent.VK_UP)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),NORTH,getRange(),getProjectileSpeed()));
+		else if(player.isRight || player.getLastKeyPressed() == KeyEvent.VK_RIGHT)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),EAST,getRange(),getProjectileSpeed()));
+		else if(player.isBottom || player.getLastKeyPressed() == KeyEvent.VK_DOWN)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),SOUTH,getRange(),getProjectileSpeed()));
+		else if(player.isLeft || player.getLastKeyPressed() == KeyEvent.VK_LEFT)	getController().addEntity((Entity) new Bullet(getX(),getY(),getController(),getWeaponType(),WEST,getRange(),getProjectileSpeed()));
 	}
-
+	public Player getPlayer(){
+		return this.player;
+	}
 	public WeaponType getWeaponType(){
 		return this.weaponType;
 	}
@@ -80,4 +84,5 @@ public abstract class Weapon extends GameObject{
 	public void setProjectileSpeed(double projectileSpeed){
 		this.projectileSpeed = projectileSpeed;
 	}
+
 }

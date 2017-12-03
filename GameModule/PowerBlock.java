@@ -15,27 +15,25 @@ public class PowerBlock extends GameObject{
 		super(x,y,controller);
 		setType(EntityType.POWERBLOCK);
 		this.powerType = rand.nextInt(4) + 1;
-		//initialize image
+
+		switch(powerType){
+			case KAPE_POWER:
+				setImage(SpriteSheet.grabImage(getController().getImage(),5,1));
+				break;
+			case LAPTOP_POWER:
+				setImage(SpriteSheet.grabImage(getController().getImage(),2,1));
+				break;
+			case SELPON_POWER:
+				setImage(SpriteSheet.grabImage(getController().getImage(),4,1));
+				break;
+			case SPRAY_POWER:
+				setImage(SpriteSheet.grabImage(getController().getImage(),6,1));
+				break;
+		}
 	}
 	
 	public void render(Graphics g){
-		switch(powerType){
-			case KAPE_POWER:
-				g.setColor(Color.darkGray);
-				break;
-			case LAPTOP_POWER:
-				g.setColor(Color.yellow);
-				break;
-			case SELPON_POWER:
-				g.setColor(Color.green);
-				break;
-			case SPRAY_POWER:
-				g.setColor(Color.pink);
-				break;
-		}
-
-		g.drawRect((int)getX(), (int)getY(), 32, 32);
-
+		g.drawImage(getImage(), (int)getX(), (int)getY(), 32, 32, null);
 	}
 
 	public int getPowerType(){

@@ -14,9 +14,8 @@ import javax.swing.*;
 import javax.swing.JFrame;
 
 public class Game extends JPanel implements Runnable{
-	public static final int WIDTH = 384;
-	public static final int HEIGHT = WIDTH / 12 * 9;
-	public static final int SCALE = 2;
+	public static final int WIDTH = 896;
+	public static final int HEIGHT = 704;
 	public final String TITLE = "Millenial's War";
 
 	private boolean running = false;
@@ -50,11 +49,11 @@ public class Game extends JPanel implements Runnable{
 
 		spriteSheet = Misc.loadImage("spritesheet");
 		background = Misc.loadImage("tempBackgroundDim");
-		map = Misc.loadImage("map");
+		map = Misc.loadImage("mapbig");
 
 		this.addKeyListener(new KeyInput(this));
 
-		c = new Controller(this);
+		c = new Controller(this, spriteSheet);
 
 		parser = new MapParser(this,map,c);
 		parser.parse();
@@ -141,28 +140,35 @@ public class Game extends JPanel implements Runnable{
 
 	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
-		System.out.println("Pressed: "+e);
+		System.out.println(key);
 		if(key == KeyEvent.VK_RIGHT){
 			p.setSpdX(5);
 			p.isRight = true;
 			p.isLeft = false;
+			p.isBottom = false;
+			p.setLastKeyPressed(key);
 		}else if(key == KeyEvent.VK_LEFT){
 			p.setSpdX(-5);
 			p.isRight = false;
 			p.isLeft = true;
+			p.isBottom = false;
+			p.setLastKeyPressed(key);
 		}else if(key == KeyEvent.VK_DOWN){
 			p.setSpdY(5);
 			p.isBottom = true;
 			p.isTop = false;
+			p.setLastKeyPressed(key);
 		}else if(key == KeyEvent.VK_UP){
 			p.setSpdY(-5);
 			p.isBottom = false;
 			p.isTop = true;
+			p.isBottom = false;
+			p.setLastKeyPressed(key);
 		}else if(key == KeyEvent.VK_SPACE){
 			currentTime = System.currentTimeMillis();
 			timeElapsed = currentTime - previousTime;
 			if(timeElapsed > ((int)p.getWeapon().getCooldown() * 1000))	{
-				p.getWeapon().tick();
+				p.getWeapon().attack();
 				previousTime = currentTime;
 			}
 		}
@@ -173,12 +179,16 @@ public class Game extends JPanel implements Runnable{
 
 		if(key == KeyEvent.VK_RIGHT){
 			p.setSpdX(0);
+			p.isRight = false;
 		}else if(key == KeyEvent.VK_LEFT){
 			p.setSpdX(0);
+			p.isLeft = false;
 		}else if(key == KeyEvent.VK_DOWN){
 			p.setSpdY(0);
+			p.isBottom = false;
 		}else if(key == KeyEvent.VK_UP){
 			p.setSpdY(0);
+			p.isTop = false;
 		}	
 	}
 

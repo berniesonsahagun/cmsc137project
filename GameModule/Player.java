@@ -1,12 +1,14 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.event.*;
 
 public class Player extends GameObject{
 	private double spdX;
 	private double spdY;
 	private Weapon weapon;
-	public boolean isTop = false,isLeft = false,isRight = false,isBottom = false;
+	public boolean isTop = false,isLeft = false,isRight = false,isBottom = true;
+	private int lastKeyPressed;
 
 	public Player(double x, double y, Controller controller){
 		super(x,y,controller);
@@ -27,12 +29,12 @@ public class Player extends GameObject{
 
 		if(getX() <= 0 - 7)
 			setX(0-7);
-		if(getX() >= (Game.WIDTH*Game.SCALE) - 16)
-			setX((Game.WIDTH*Game.SCALE) - 16);
+		if(getX() >= (Game.WIDTH) - 16)
+			setX((Game.WIDTH) - 16);
 		if(getY() <= 0)
 			setY(0);
-		if(getY() >= (Game.HEIGHT*Game.SCALE) - 32)
-			setY((Game.HEIGHT*Game.SCALE) - 32);
+		if(getY() >= (Game.HEIGHT) - 32)
+			setY((Game.HEIGHT) - 32);
 	}
 
 	private void collide(){
@@ -68,11 +70,12 @@ public class Player extends GameObject{
 	}
 
 	public void render(Graphics g){
-		g.setColor(Color.BLUE);
-		g.drawRect((int)getX(), (int)getY(), 32, 32);
-		
+		g.drawImage(getWeapon().getImage(),(int)getX(), (int)getY(), 32, 32,null);
 	}
 
+	public int getLastKeyPressed(){
+		return this.lastKeyPressed;
+	}
 	public double getSpdX(){
 		return this.spdX;
 	}
@@ -90,5 +93,8 @@ public class Player extends GameObject{
 	}
 	public void setWeapon(Weapon weapon){
 		this.weapon = weapon;
+	}
+	public void setLastKeyPressed(int key){
+		this.lastKeyPressed = key;
 	}
 }

@@ -31,6 +31,7 @@ public class MainPanel extends JFrame{
 		this.setFinalFrame();
 	}
 
+
 	private void setFrame(){
 		this.setPreferredSize(new Dimension(900,700));
 		this.setResizable(false);
