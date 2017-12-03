@@ -38,7 +38,8 @@ public class Game extends JPanel implements Runnable{
 	private Room room;
 
 	public Game(){
-		super(new BorderLayout());
+		super(null);
+		this.add(new ChatPanel());
 		this.room = room;
 		init();
 	}

@@ -11,7 +11,7 @@ public class ChatPanel extends JPanel{
 
 	public ChatPanel(){
 		setSize(200,700);
-    	setLocation(700,0);
+    	setLocation(900,0);
 
     	TextAreaScroll.setSize(190,550);
         TextAreaScroll.setLocation(0,10);

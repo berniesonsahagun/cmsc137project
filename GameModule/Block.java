@@ -11,8 +11,10 @@ public class Block extends GameObject{
 	}
 	
 	public void render(Graphics g){
-		g.setColor(Color.WHITE);
-		g.drawRect((int)getX(), (int)getY(), 32, 32);
+		// g.setColor(Color.WHITE);
+		// g.drawRect((int)getX(), (int)getY(), 32, 32);
+
+		g.drawImage(SpriteSheet.grabImage(Misc.loadImage("palette"), 2, 1),(int)getX(), (int)getY(), 32, 32,null,null);
 
 	}
 }

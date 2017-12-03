@@ -19,10 +19,12 @@ public class MainPanel extends JFrame{
 	private MainMenu mainMenu;
 	private EnterName enterName;
 	private static Game game;
-	private GameRoomList gameRoomList;
-	private AddGameRoom addGameRoom;
-	private LargeRoom largeRoom;
-	private SmallRoom smallRoom;
+	// private GameRoomList gameRoomList;
+	// private AddGameRoom addGameRoom;
+	// private LargeRoom largeRoom;
+	// private SmallRoom smallRoom;
+	private PlayScreen playScreen;
+	private GameRoom gameRoom;
 
 	public MainPanel(String name){
 		super(name);
@@ -33,7 +35,7 @@ public class MainPanel extends JFrame{
 
 
 	private void setFrame(){
-		this.setPreferredSize(new Dimension(900,700));
+		this.setPreferredSize(new Dimension(1100,732));
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); 
 		this.addWindowListener(new ConfirmOnClose());
@@ -54,10 +56,12 @@ public class MainPanel extends JFrame{
 		mainMenu = new MainMenu();
 		enterName = new EnterName();
 		game = new Game();
-		gameRoomList = new GameRoomList();
-		addGameRoom = new AddGameRoom();
-		smallRoom = new SmallRoom();
-		largeRoom = new LargeRoom();
+		// gameRoomList = new GameRoomList();
+		// addGameRoom = new AddGameRoom();
+		// smallRoom = new SmallRoom();
+		// largeRoom = new LargeRoom();
+		gameRoom = new GameRoom();
+		playScreen = new PlayScreen();
 
 		gameContainer = this.getContentPane();
 		screenDeck = new JPanel(new CardLayout());
@@ -67,10 +71,12 @@ public class MainPanel extends JFrame{
 		screenDeck.add(mainMenu,"Main Menu");
 		screenDeck.add(enterName,"Enter Name");
 		screenDeck.add(game, "Game");
-		screenDeck.add(gameRoomList,"Game Room List");
-		screenDeck.add(addGameRoom,"Add Room");
-		screenDeck.add(smallRoom,"Small Room");
-		screenDeck.add(largeRoom,"Large Room");
+		// screenDeck.add(gameRoomList,"Game Room List");
+		// screenDeck.add(addGameRoom,"Add Room");
+		// screenDeck.add(smallRoom,"Small Room");
+		// screenDeck.add(largeRoom,"Large Room");
+		screenDeck.add(gameRoom, "Game Room");
+		screenDeck.add(playScreen, "Play Screen");
 		gameContainer.add(screenDeck);
 	}
 	private void setFinalFrame(){

@@ -4,21 +4,12 @@ import  javax.swing.*;
 public class PlayScreen extends JPanel{
 
 	public PlayScreen(){
-		// contentPane.setLayout(null);
-  //       contentPane.add(Chatpanel);
-  //       contentPane.add(Satuspanel);
-
         this.setLayout(null);
         this.add(Chatpanel);
-       // getContentPane().add(Statuspanel);
+        this.add(game);
 
-
-        this.start();
-	}
-
-	public void start(){
-		ChatClient client = new ChatClient();
 	}
 
 	private final ChatPanel Chatpanel = new ChatPanel();
+	private final Game game = new Game();
 }

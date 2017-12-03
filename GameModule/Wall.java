@@ -9,8 +9,9 @@ public class Wall extends GameObject{
 	}
 
 	public void render(Graphics g){
-		g.setColor(Color.BLACK);
-		g.drawRect((int)getX(), (int)getY(), 32, 32);
+		//g.setColor(Color.BLACK);
+		//g.drawRect((int)getX(), (int)getY(), 32, 32);
+		g.drawImage(SpriteSheet.grabImage(Misc.loadImage("palette"), 1, 1),(int)getX(), (int)getY(), 32, 32,null,null);
 		
 	}
 }

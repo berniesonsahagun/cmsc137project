@@ -35,33 +35,33 @@ public class HelpScreen extends JPanel{
 		HelpPanel southPanel = new HelpPanel(Misc.loadImage("sheet"));
 		southPanel.setLayout(new BorderLayout());
 		JPanel southWestPanel = new JPanel();
-		JButton previousButton = new JButton(new ImageIcon("../assets/img/prevButton.png"));
-		previousButton.setRolloverIcon(new ImageIcon("../assets/img/prevButtonHover.png"));
-		previousButton.setPressedIcon(new ImageIcon("../assets/img/prevButtonClicked.png"));
+		JButton previousButton = new JButton(new ImageIcon("assets/img/prevButton.png"));
+		previousButton.setRolloverIcon(new ImageIcon("assets/img/prevButtonHover.png"));
+		previousButton.setPressedIcon(new ImageIcon("assets/img/prevButtonClicked.png"));
 		previousButton.setContentAreaFilled(false);
 		previousButton.setBorderPainted(false);
 		southWestPanel.add(previousButton);
 
 		JPanel southEastPanel = new JPanel();
 		
-		JButton nextButton = new JButton(new ImageIcon("../assets/img/nextButton.png"));
-		nextButton.setRolloverIcon(new ImageIcon("../assets/img/nextButtonHover.png"));
-		nextButton.setPressedIcon(new ImageIcon("../assets/img/nextButtonClicked.png"));
+		JButton nextButton = new JButton(new ImageIcon("assets/img/nextButton.png"));
+		nextButton.setRolloverIcon(new ImageIcon("assets/img/nextButtonHover.png"));
+		nextButton.setPressedIcon(new ImageIcon("assets/img/nextButtonClicked.png"));
 		nextButton.setContentAreaFilled(false);
 		nextButton.setBorderPainted(false);
 		southEastPanel.add(nextButton);
 
 		JPanel southCenterPanel = new JPanel();
 
-		JButton backToMenuButton = new JButton(new ImageIcon("../assets/img/backMainMenuButton.png"));
+		JButton backToMenuButton = new JButton(new ImageIcon("assets/img/backMainMenuButton.png"));
 		backToMenuButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				CardLayout c = (CardLayout)MainPanel.getCardsPanel().getLayout();
 				c.show(MainPanel.getCardsPanel(), "Main Menu");
 			}
 		});
-		backToMenuButton.setRolloverIcon(new ImageIcon("../assets/img/backMainMenuButtonHover.png"));
-		backToMenuButton.setPressedIcon(new ImageIcon("../assets/img/backMainMenuButtonClicked.png"));
+		backToMenuButton.setRolloverIcon(new ImageIcon("assets/img/backMainMenuButtonHover.png"));
+		backToMenuButton.setPressedIcon(new ImageIcon("assets/img/backMainMenuButtonClicked.png"));
 		backToMenuButton.setContentAreaFilled(false);
 		backToMenuButton.setBorderPainted(false);
 		backToMenuButton.setMargin(new Insets(0,0,0,0));
