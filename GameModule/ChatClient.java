@@ -27,7 +27,7 @@ public class ChatClient implements Runnable{
 
 	public ChatClient(){
 		try{
-			socket = new Socket("localhost", 8888);
+			socket = new Socket(MainPanel.getIPAddress(), 8888);
 			inputLine = new BufferedReader(new InputStreamReader(System.in));
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());

@@ -10,6 +10,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 
 public class MainPanel extends JFrame{
+	private static String ip;
 	private static JPanel screenDeck = new JPanel(new CardLayout());
 	private static Container gameContainer;
 	private static String playerName;
@@ -26,11 +27,12 @@ public class MainPanel extends JFrame{
 	private PlayScreen playScreen;
 	private GameRoom gameRoom;
 
-	public MainPanel(String name){
+	public MainPanel(String name, String ip){
 		super(name);
 		this.setFrame();
 		this.addPanels();
 		this.setFinalFrame();
+		this.ip = ip;
 	}
 
 
@@ -86,12 +88,15 @@ public class MainPanel extends JFrame{
 	}
 
 	//-------getters
+	public static String getIPAddress(){return ip;}
 	public static JPanel getCardsPanel(){return screenDeck;}
 	public static Container getContainer(){return gameContainer;}
+	public static String getPlayerName(){return playerName;}
 	public static void setPlayerName(String name){playerName = name;}
 	public static void switchPanels(String tag){
 		if(tag.equals("Game")){
 			game.start();
+			ChatPanel.init();
 		}
 		CardLayout c = (CardLayout)MainPanel.getCardsPanel().getLayout();
 		c.show(MainPanel.getCardsPanel(), tag);

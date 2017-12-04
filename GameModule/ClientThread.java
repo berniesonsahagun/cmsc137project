@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ClientThread extends Thread {
 	private final ArrayList<ClientThread> clients;
 	private Socket socket;
-	private String clientName = null;
+	private static String clientName;
   private DataInputStream in = null;
   private DataOutputStream out = null;
 
@@ -23,9 +23,9 @@ public class ClientThread extends Thread {
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
 
-			out.writeUTF("Please enter your name: ");
-	        clientName = in.readUTF().trim();
-	        out.writeUTF("Welcome "+clientName+". To leave enter /quit in a new line.");
+			//out.writeUTF("Please enter your name: ");
+	        clientName =MainPanel.getPlayerName();
+	        out.writeUTF("Welcome "+clientName+".");
 		}catch(IOException e){
 			e.printStackTrace();
 		}

@@ -1,11 +1,11 @@
 public class PlayerInfo{
-	private String playerName;
+	private static String playerName;
 
 	public PlayerInfo(String playerName){
 		this.playerName = playerName;
 	}
 
-	public String getName(){
-		return this.playerName;
+	public static String getName(){
+		return playerName;
 	}
 }

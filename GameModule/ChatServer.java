@@ -7,7 +7,14 @@ public class ChatServer{
 	private static Socket clientSocket = null;
 	private static ArrayList<ClientThread> clients = new ArrayList<ClientThread>();
 
-	public static void main(String[] args){
+	public static void main(String[] args){		
+		try{
+			InetAddress ip = InetAddress.getLocalHost();
+			System.out.println("Serving at " + ip);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+
 		try{
 			serverSocket = new ServerSocket(8888);
 		}catch(IOException e){

@@ -18,7 +18,7 @@ public class Game extends JPanel implements Runnable{
 	public static final int HEIGHT = 704;
 	public final String TITLE = "Millenial's War";
 
-	private boolean running = false;
+	private static boolean running = false;
 	private Thread thread;
 
 	private long currentTime;
@@ -193,7 +193,9 @@ public class Game extends JPanel implements Runnable{
 		}	
 	}
 
-
+	public static boolean isRunning(){
+		return running;
+	}
 
 	public BufferedImage getSpriteSheet(){
 		return spriteSheet;
